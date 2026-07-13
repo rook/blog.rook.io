@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rook Blog</title>
+    <!-- The Rook blog now lives on Medium; canonical points crawlers at its real home. -->
+    <link rel="canonical" href="https://medium.com/rook-io/" />
+    <!-- Runs while the <head> is still parsing, before the body paints, so the
+         browser navigates without flashing an intermediate page. replace() leaves
+         no history entry, so Back from Medium skips this page instead of looping. -->
+    <script>
+      location.replace("https://medium.com/rook-io/");
+    </script>
+    <!-- Fallback for browsers with JavaScript disabled. -->
+    <meta http-equiv="refresh" content="0; url=https://medium.com/rook-io/" />
+  </head>
+  <body>
+    <!-- Last resort if both scripting and meta refresh are unavailable. -->
+    <noscript><a href="https://medium.com/rook-io/">Continue to the Rook blog on Medium</a></noscript>
+  </body>
+</html>
