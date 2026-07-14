@@ -6,9 +6,11 @@ https://medium.com/rook-io/.
 Medium removed their previous support for custom domains (see rook/rook#17938), so this static
 Github Pages site is a simple alternative for it.
 
-This site simply performs a client side redirect to https://medium.com/rook-io/ in this priority
-order:
+GitHub Pages serves `index.html` for the root and `404.html` for every other path, which covers the
+old custom domain's deep links (e.g. `blog.rook.io/rook-v1-20-storage-enhancements-5331368a5936`).
+Both forward the request path unchanged to `https://medium.com/rook-io<path>`, so deep links should
+land on their exact article.
 
-1. `location.replace()` in `<head>`
-1. `<meta http-equiv="refresh">` fallback for browsers without JavaScript
-1. a static link on the page if meta refresh is not supported
+The redirect is a client-side `location.replace()`, falling back to `<meta http-equiv="refresh">` and
+a static link for browsers without JavaScript. Only the JavaScript path preserves the request path;
+the fallbacks send the reader to the publication home.
